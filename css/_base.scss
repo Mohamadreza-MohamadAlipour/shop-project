@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'vazir';
+    src: url('../fonts/Vazir.eot') format('eot');
+    src: url('../fonts/Vazir.woff2') format('woff2'),
+        url('../fonts/Vazir.woff') format('woff'),
+        url('../fonts/Yekan.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'yekan';
+    src: url('../fonts/Yekan.eot') format('eot');
+    src: url('../fonts/Yekan.woff2') format('woff2'),
+        url('../fonts/Yekan.woff') format('woff'),
+        url('../fonts/Yekan.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    direction: rtl;
+    font-family: vazir !important;
+}
+
+input,
+button {
+    font-family: vazir;
+}
+
+$color-red : #c00;
+$color-gray : #696969;
+
+.content-margin {
+    margin-left: .3rem;
+}
+
+@mixin flexible {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin transition($second) {
+    transition: all $second ease-in-out;
+    -webkit-transition: all $second ease-in-out;
+    -moz-transition: all $second ease-in-out;
+    -ms-transition: all $second ease-in-out;
+    -o-transition: all $second ease-in-out;
+}
+
+@mixin slide-animation {
+    opacity: 0;
+    animation: text 1s ease forwards;
+    -webkit-animation: text 1s ease forwards;
+
+    @keyframes text {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+            -webkit-transform: translateX(100px);
+            -moz-transform: translateX(100px);
+            -ms-transform: translateX(100px);
+            -o-transform: translateX(100px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
+            -o-transform: translateX(0);
+        }
+
+    }
+}
+
+@mixin translateY($deg) {
+    transform: translateY($deg);
+    -webkit-transform: translateY($deg);
+    -moz-transform: translateY($deg);
+    -ms-transform: translateY($deg);
+    -o-transform: translateY($deg);
+}
+
+@mixin img-zoom($deg) {
+    transform: scale($deg);
+    -webkit-transform: scale($deg);
+    -moz-transform: scale($deg);
+    -ms-transform: scale($deg);
+    -o-transform: scale($deg);
+}
+
+@mixin top-header-list {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin top-header-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    @media (max-width : 992px) {
+        height: auto;
+    }
+}
+
+@mixin slide-controler-styling {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    @include transition(.3s);
+
+    &:hover {
+        background-color: $color-red;
+    }
+}
+
+.footer-header {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
